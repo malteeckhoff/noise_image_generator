@@ -1,6 +1,9 @@
 # Noisy Image Generator
 
-This script creates an image with subtle noise on a specified base color. The noise is designed to be virtually indistinguishable to the human eye, making the image appear as a uniform color while containing diverse pixel variations.
+This script creates an image with subtle noise on a specified base color.
+
+The noise is designed to be virtually indistinguishable to the human eye, making the image appear as a uniform color while containing diverse pixel variations.
+But the amount of noise can be specified to be as large (and noticeable) as desired.
 
 ## Installation
 
