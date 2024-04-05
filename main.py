@@ -2,7 +2,7 @@ from PIL import Image
 import random
 import argparse
 
-def create_noisy_image(base_color_hex, width, height, variation_range):
+def create_noisy_image(base_color_hex, width, height, variation_range, output_path):
     # Convert the hex color to RGB
     base_color = tuple(int(base_color_hex.lstrip('#')[i:i+2], 16) for i in (0, 2, 4))
     
@@ -20,14 +20,15 @@ def create_noisy_image(base_color_hex, width, height, variation_range):
             pixels[x, y] = new_color
     
     # Save or display the image
-    image.save('noisy_image.png')
+    image.save(output_path)
 
 parser = argparse.ArgumentParser(description='Generate a noisy image.')
 parser.add_argument('--base_color', type=str, default='#ffffff', help='Base color in hex format (default: #ffffff)')
 parser.add_argument('--width', type=int, default=1000, help='Width of the image (default: 1000)')
 parser.add_argument('--height', type=int, default=1000, help='Height of the image (default: 1000)')
 parser.add_argument('--variation', type=int, default=2, help='Variation for each color channel (default: 2)')
+parser.add_argument('--output', type=str, default="noisy_image.png", help='Variation for each color channel (default: 2)')
 
 args = parser.parse_args()
 
-create_noisy_image(base_color_hex=args.base_color, width=args.width, height=args.height, variation_range=args.variation)
+create_noisy_image(base_color_hex=args.base_color, width=args.width, height=args.height, variation_range=args.variation, output_path=args.output)
